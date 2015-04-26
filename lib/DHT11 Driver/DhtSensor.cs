@@ -164,7 +164,7 @@ namespace CW.NETMF.Sensors
       }
       // The 'bitMask' also serves as edge counter: data bit edges plus
       // extra ones at the beginning of the communication (presence pulse).
-      bitMask = 1L << 42;
+      bitMask = 1L << 41;
 
       data = 0;
       // lastTicks = 0; // This is not really needed, we measure duration
@@ -196,7 +196,10 @@ namespace CW.NETMF.Sensors
         if(checksum == (byte)(data & 0xFF))
         {
           dataValid = true;
-          Convert(bytes);
+          if (bytes[0] == 0)
+              portIn.DisableInterrupt();
+          else
+              Convert(bytes);
         }
         else
         {
