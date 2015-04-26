@@ -20,7 +20,7 @@ namespace LcdHelloWorld
             // Default configuration coresponds to Adafruit's LCD backpack
 
             // initialize i2c bus (only one instance is allowed)
-            var bus = new I2CBus();
+            //var bus = new I2CBus();
 
             // initialize provider (multiple devices can be attached to same bus)
             //var setup = new BaseShifterLcdTransferProvider.ShifterSetup
@@ -34,25 +34,24 @@ namespace LcdHelloWorld
             //    D7 = ShifterPin.GP6,
             //    BL = ShifterPin.GP7
             //};
-            var lcdProvider = new MCP23008LcdTransferProvider(bus, 0x0, MCP23008LcdTransferProvider.DefaultSetup);
+            //var lcdProvider = new MCP23008LcdTransferProvider(bus, 0x0, MCP23008LcdTransferProvider.DefaultSetup);
 
             /*
-                        // Option 2: Adafruit's LCD backup can also work in SIP mode.
-                        // this setup enabled this pinout.
-                        var lcdProvider = new Shifter74Hc595LcdTransferProvider(SPI_Devices.SPI1, Pins.GPIO_PIN_D10,
-                            Shifter74Hc595LcdTransferProvider.BitOrder.MSBFirst,
-                            new Shifter74Hc595LcdTransferProvider.ShifterSetup
-                            {
-                                RS = ShifterPin.GP0,
-                                RW = ShifterPin.None,
-                                Enable = ShifterPin.GP1,
-                                D4 = ShifterPin.GP5,
-                                D5 = ShifterPin.GP4,
-                                D6 = ShifterPin.GP3,
-                                D7 = ShifterPin.GP2,
-                                BL = ShifterPin.GP6
-                            });
-            */
+                         Option 2: Adafruit's LCD backup can also work in SIP mode.
+                         this setup enabled this pinout.*/
+            var lcdProvider = new Shifter74Hc595LcdTransferProvider(SPI_Devices.SPI1, Pins.GPIO_PIN_D10,
+                Shifter74Hc595LcdTransferProvider.BitOrder.LSBFirst,
+                new Shifter74Hc595LcdTransferProvider.ShifterSetup
+                {
+                    RS = ShifterPin.GP1,
+                    RW = ShifterPin.None,
+                    Enable = ShifterPin.GP2,
+                    D4 = ShifterPin.GP3,
+                    D5 = ShifterPin.GP4,
+                    D6 = ShifterPin.GP5,
+                    D7 = ShifterPin.GP6,
+                    BL = ShifterPin.GP7
+                });
 
             // create the LCD interface
             var lcd = new Lcd(lcdProvider);
