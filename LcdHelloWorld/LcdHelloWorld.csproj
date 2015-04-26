@@ -37,14 +37,17 @@
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="MicroLiquidCrystal">
-      <HintPath>..\..\microliquidcrystal\Main\Source\MicroLiquidCrystal\bin\Debug\MicroLiquidCrystal.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.SPOT.Hardware" />
     <Reference Include="Microsoft.SPOT.Native" />
     <Reference Include="Microsoft.SPOT.Net" />
     <Reference Include="SecretLabs.NETMF.Hardware" />
     <Reference Include="SecretLabs.NETMF.Hardware.Netduino" />
     <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\lib\MicroLiquidCrystal\MicroLiquidCrystal.csproj">
+      <Project>{B4B72543-E638-44F1-B096-9BBB6BD4698B}</Project>
+      <Name>MicroLiquidCrystal</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

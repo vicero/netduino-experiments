@@ -69,37 +69,40 @@ namespace LcdHelloWorld
             Thread.Sleep(1000);
 
             lcd.Home();
+            lcd.Clear();
 
             // Print a message to the LCD.
             lcd.Write("test");
 
             //Stopwatch sw = Stopwatch.StartNew();
 
-            //while (true)
-            //{
-            //    sw.Start();
+            while (true)
+            {
+                //sw.Start();
 
-            //    // set the cursor to column 0, line 1
-            //    //lcd.SetCursorPosition(0, 1);
+                // set the cursor to column 0, line 1
+                //lcd.SetCursorPosition(0, 1);
+                lcd.Home();
+                lcd.Clear();
 
-            //    // print the number of seconds since reset:
-            //    lcd.Write((Utility.GetMachineTime().Ticks / 10000).ToString());
+                // print the number of seconds since reset:
+                lcd.Write((Utility.GetMachineTime().Ticks / 10000).ToString());
 
-            //    Debug.Print(sw.ElapsedMilliseconds.ToString());
-            //    sw.Reset();
+                //Debug.Print(sw.ElapsedMilliseconds.ToString());
+                //sw.Reset();
 
-            //    Thread.Sleep(1000);
+                Thread.Sleep(500);
 
-            //    //lcd.Backlight = !lcd.Backlight;
+                //lcd.Backlight = !lcd.Backlight;
 
-            //    //lcd.Visible = false;
+                //lcd.Visible = false;
 
-            //    //Thread.Sleep(100);
+                //Thread.Sleep(100);
 
-            //    //lcd.Visible = true;
+                //lcd.Visible = true;
 
-            //    // Thread.Sleep(100);
-            //}
+                // Thread.Sleep(100);
+            }
         }
 
     }
